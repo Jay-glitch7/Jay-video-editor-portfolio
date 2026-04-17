@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-f1-red: #E10600;
+  --color-f1-black: #151515;
+}
+
+@layer base {
+  body {
+    @apply bg-f1-black text-white min-h-screen overflow-x-hidden;
+    background-image: 
+      linear-gradient(45deg, rgba(225, 6, 0, 0.03) 25%, transparent 25%, transparent 50%, rgba(225, 6, 0, 0.03) 50%, rgba(225, 6, 0, 0.03) 75%, transparent 75%, transparent),
+      radial-gradient(circle at 80% 20%, rgba(225, 6, 0, 0.05) 0%, transparent 40%);
+    background-size: 100px 100px, 100% 100%;
+  }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 skew-x-[-10deg];
+}
+
+.glass-card {
+  @apply bg-white/[0.03] border-l-4 border-l-transparent border border-white/[0.08] rounded-none overflow-hidden transition-all duration-300;
+  clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+}
+
+.glass-card:hover {
+  @apply border-f1-red/50 border-l-f1-red bg-white/[0.07];
+}
+
+@keyframes speed-streak {
+  0% { transform: translateX(-150%) skewX(-45deg); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateX(400%) skewX(-45deg); opacity: 0; }
+}
+
+.speed-streak {
+  @apply absolute h-[2px] bg-gradient-to-r from-transparent via-white/40 to-transparent w-48 opacity-0 pointer-events-none z-20;
+  box-shadow: 0 0 10px rgba(225, 6, 0, 0.5);
+}
+
+.glass-card:hover .speed-streak {
+  animation: speed-streak 0.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.telemetry-dot {
+  @apply absolute w-1 h-1 bg-f1-red rounded-full opacity-0 z-20;
+}
+
+.glass-card:hover .telemetry-dot {
+  @apply animate-pulse opacity-100;
+}
+
+.glass-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-f1-red/10 to-transparent opacity-0 transition-all duration-700 pointer-events-none -translate-x-full;
+  z-index: 15;
+}
+
+.glass-card:hover::before {
+  @apply opacity-100 translate-x-full;
+}
+
+.play-icon {
+  @apply w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[15px] border-l-f1-red ml-1;
+}
+
+.f1-skew {
+  @apply skew-x-[-12deg] italic font-black uppercase tracking-tighter;
+}
