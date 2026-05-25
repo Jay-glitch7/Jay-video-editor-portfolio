@@ -35,11 +35,11 @@ export const VIDEOS: Video[] = [
   },
   {
     id: '5',
-    title: 'I Tried Every Celebrity Experience!',
+    title: '4 Pros vs 1000 Players',
     description: 'A showcase of high-end editing, color grading, and narrative storytelling.',
-    tag: 'IRL video',
-    videoUrl: 'https://youtu.be/xV2jGu5_dsU?si=kIyrdsJUWZLgxbc3',
-    thumbnailUrl: 'https://img.youtube.com/vi/xV2jGu5_dsU/maxresdefault.jpg',
+    tag: 'Gaming Video',
+    videoUrl: 'https://youtu.be/bU8emuzp2BI?si=JOG977FqUMN4BMUT',
+    thumbnailUrl: 'https://img.youtube.com/vi/bU8emuzp2BI/maxresdefault.jpg',
   },
   {
     id: '6',
